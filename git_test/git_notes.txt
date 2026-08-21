@@ -1,0 +1,49 @@
+git rev-parse --show-toplevel
+
+git remote -v   --> Current connected github rep
+
+git branch --show-current --> current branch
+
+git status
+
+git log --oneline --decorate -5
+
+
+Swicth to a new repo
+git remote set-url origin https://github.com/aaykaul/Data_Engineering.git
+git remote -v -- validate which repo
+
+git branch -- show all branches
+git switch main
+
+
+git add       Select changes for the next commit
+git commit    Save staged changes locally in Git history
+git push      Upload commits to GitHub
+git pull      Download and merge changes from GitHub
+git fetch     Download remote information without merging
+git switch    Change branches
+git rm        Delete a tracked file from the branch
+
+git rm file                 Removes from Git and local disk
+git rm --cached file        Removes from Git but keeps local file
+git switch branch           Makes local files match that branch
+
+
+
+
+.github --> workflows --> ci.yml
+
+on        → When?
+jobs      → What groups of work?
+runs-on   → Where?
+steps     → What sequence?
+uses      → Use reusable Action
+run       → Execute command
+with      → Parameters
+needs     → Dependency/order
+secrets   → Sensitive configuration
+
+
+docker login
+docker token:
