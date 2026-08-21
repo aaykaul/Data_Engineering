@@ -1,0 +1,56 @@
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+pip install -r .\requirements.txt
+
+ubuntu
+aayushkaul/jhankar
+
+docker build -t python-learning:1.0 .
+docker images - to check current images
+docker run --rm <image_name> -->  creates container .. runs its an deletes upon completion
+
+docker run --name pyspark-test pyspark-learning:2.2 -->if you don't want to delete but keep it Active
+
+docker run --rm -v "${PWD}:/app" pyspark-learning:2.1 ---> runs with a local mount path
+
+
+docker system df -- to check space
+docker image -- to list 
+docker image rm <image_name> -- to delete
+docker rm <container_name_or_id> -- to delete container.
+docker container prune --- deletes all the containers
+
+docker run --rm `
+  -e ENVIRONMENT=dev `
+  -e INPUT_PATH=/app/data/orders.csv `
+  -e OUTPUT_PATH=/app/output `
+  -v "${PWD}\data:/app/data" `
+  -v "${PWD}\output:/app/output" `
+  pyspark-learning:2.3
+
+   -v "${PWD}\data:/app/data" `
+   ${PWD}\data --> Input mount path
+   /app/data ---> mount inside container
+
+   docker tag pyspark-learning:2.3 aayushkaul/pyspark-learning:2.3 --> to add tags, looks like a new image
+   docker push aayushkaul/pyspark-learning:2.3 --> push to docker hub
+
+   docker rmi aayushkaul/pyspark-learning:2.3---> remove local copy
+   docker pull aayushkaul/pyspark-learning:2.3 --> pull from docker hub 
+
+
+
+   Kubernetes:
+
+  kubectl version --client
+  kubectl get nodes
+  kubectl apply -f kubernetes/pyspark-job.yaml
+  kubectl get jobs
+  kubectl get pods
+  kubectl logs <pod-name>
+  kubectl describe job pyspark-learning
+  kubectl describe pod <pod-name>
+
+kubectl delete job pyspark-learning

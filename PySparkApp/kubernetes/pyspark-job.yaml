@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: pyspark-learning-v6
+
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: pyspark
+          image: aayushkaul/pyspark-learning:4.0
+
+          env:
+            - name: ENVIRONMENT
+              value: "dev"
+
+            - name: INPUT_PATH
+              value: "/app/data/orders.csv"
+
+            - name: OUTPUT_PATH
+              value: "/app/output"
+
+          volumeMounts:
+            - name: input-volume
+              mountPath: /app/data
+              readOnly: true
+
+            - name: output-volume
+              mountPath: /app/output
+
+      volumes:
+        - name: input-volume
+          hostPath:
+            path: "/run/desktop/mnt/host/c/Users/Aayush.Kaul/OneDrive - WiseTech Global Pty Ltd/Desktop/Personal/Solution Architect/00_Learning/dockerization/PySparkApp/data"
+            type: Directory
+
+        - name: output-volume
+          hostPath:
+            path: "/run/desktop/mnt/host/c/Users/Aayush.Kaul/OneDrive - WiseTech Global Pty Ltd/Desktop/Personal/Solution Architect/00_Learning/dockerization/PySparkApp/output"
+            type: Directory
+
+  backoffLimit: 2
