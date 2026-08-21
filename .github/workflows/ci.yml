@@ -47,6 +47,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-          
+
       - name: Build Docker image
-        run: docker build -t pyspark-learning:test ./PySparkApp
+        run: |
+          docker build \
+            -t ${{ vars.DOCKER_USERNAME }}/pyspark-learning:4.1 \
+            ./PySparkApp
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ vars.DOCKER_USERNAME }}/pyspark-learning:4.1
