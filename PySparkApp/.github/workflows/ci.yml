@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - your-branch-name
+      - pyspark-project
 
   pull_request:
     branches:
@@ -30,4 +30,3 @@ jobs:
       - name: Check Python syntax
         run: |
           python -m compileall src
-          
