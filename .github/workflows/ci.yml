@@ -68,4 +68,8 @@ jobs:
 
       - name: Check Kubernetes connection
         run: kubectl get nodes
-        
+
+      - name: Deploy Pyspark Job
+        run: |
+          kubectl delete job pyspark-learning-v6 --ignore-not-found
+          kubectl apply -f ./PySparkApp/kubernetes/pyspark-job.yaml
