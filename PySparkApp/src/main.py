@@ -1,6 +1,14 @@
 import os
 from pyspark.sql import SparkSession
+from vault_config import get_vault_config
 
+config = get_vault_config()
+
+environment = config["ENVIRONMENT"]
+input_path = config["INPUT_PATH"]
+output_path = config["OUTPUT_PATH"]
+
+"""
 environment  = os.getenv("ENVIRONMENT", "dev")
 
 input_path = os.getenv(
@@ -12,7 +20,7 @@ output_path = os.getenv(
     "OUTPUT_PATH",
     "/app/output"
 )
-
+"""
 
 print(f"Environment: {environment}")
 print(f"Input path: {input_path}")
