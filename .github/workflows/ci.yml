@@ -58,14 +58,14 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/pyspark-learning:4.1
 
-deploy-test:
-  needs: docker
-  runs-on: self-hosted
+  deploy-test:
+    needs: docker
+    runs-on: self-hosted
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Check Kubernetes connection
-      run: kubectl get nodes
-      
+      - name: Check Kubernetes connection
+        run: kubectl get nodes
+        
