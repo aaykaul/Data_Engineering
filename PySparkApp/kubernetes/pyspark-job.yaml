@@ -14,14 +14,11 @@ spec:
           image: aayushkaul/pyspark-learning:4.1
 
           env:
-            - name: ENVIRONMENT
-              value: "dev"
+            - name: VAULT_ADDR
+              value: "http://host.docker.internal:8200"
 
-            - name: INPUT_PATH
-              value: "/app/data/orders.csv"
-
-            - name: OUTPUT_PATH
-              value: "/app/output"
+            - name: VAULT_TOKEN
+              value: "root"
 
           volumeMounts:
             - name: input-volume
