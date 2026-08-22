@@ -1,0 +1,21 @@
+name: Promote to QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Docker image tag to deploy"
+        required: true
+
+jobs:
+  deploy-qa:
+    runs-on: self-hosted
+    environment: qa
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to QA
+        run: |
+          echo "Deploying image tag: ${{ inputs.image_tag }}"
