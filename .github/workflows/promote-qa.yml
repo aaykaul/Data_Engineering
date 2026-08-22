@@ -17,6 +17,22 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to QA
+        shell: powershell
         run: |
-          echo "Deploying image tag: ${{ inputs.image_tag }}"
+          $image = "aayushkaul/pyspark-learning:${{ inputs.image_tag }}"
+          echo "Deploying $image"
+
+  deploy-prod:
+    runs-on: self-hosted
+    environment: prod
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to PROD
+        shell: powershell
+        run: |
+          $image = "aayushkaul/pyspark-learning:${{ inputs.image_tag }}"
+          echo "Deploying $image"
           
