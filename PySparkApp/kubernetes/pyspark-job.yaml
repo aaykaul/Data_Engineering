@@ -11,7 +11,7 @@ spec:
 
       containers:
         - name: pyspark
-          image: aayushkaul/pyspark-learning:4.0
+          image: aayushkaul/pyspark-learning:4.1
 
           env:
             - name: ENVIRONMENT
