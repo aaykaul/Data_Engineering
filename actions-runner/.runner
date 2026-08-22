@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 21,
+  "agentName": "8SQZC64",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus21.actions.githubusercontent.com/BLPKKdOv0CrSJ87hRalXT48a662nyiNOTEKbnNZ18F3PTv0uaL/",
+  "gitHubUrl": "https://github.com/aaykaul/Data_Engineering",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
