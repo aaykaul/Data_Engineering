@@ -10,6 +10,16 @@ on:
     branches:
       - main
 
+    paths-ignore:
+      - ".github/workflows/promote-qa.yml"
+      - ".github/workflows/promote-prod.yml"
+
+#    paths:
+#      - "PySparkApp/src/**"
+#      - "PySparkApp/tests/**"
+#      - "PySparkApp/Dockerfile"
+#      - "PySparkApp/requirements.txt"      
+
 jobs:
   test:
     runs-on: ubuntu-latest
